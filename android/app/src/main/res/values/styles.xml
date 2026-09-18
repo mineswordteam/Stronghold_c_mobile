@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.StrongholdCrusader" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#8B0000</item>
+        <item name="colorSecondary">#DAA520</item>
+    </style>
+
+    <style name="Theme.StrongholdCrusader" parent="Base.Theme.StrongholdCrusader" />
+
+    <style name="Theme.StrongholdCrusader.Fullscreen" parent="Theme.StrongholdCrusader">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>
