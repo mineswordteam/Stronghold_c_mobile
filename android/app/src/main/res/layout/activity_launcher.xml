@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#1C140E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- MineswordTeam Branding Header -->
+        <TextView
+            android:id="@+id/tvBranding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MINESWORDTEAM"
+            android:textColor="#DAA520"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.15" />
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stronghold Crusader HD &amp; Extreme HD - Android Edition"
+            android:textColor="#C0C0C0"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Game Selection Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:weightSum="2">
+
+            <!-- Card 1: Stronghold Crusader HD -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCrusaderHd"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#2A1E15"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="#DAA520"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stronghold Crusader HD"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvCrusaderHdStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ready to Launch"
+                        android:textColor="#32CD32"
+                        android:textSize="12sp"
+                        android:layout_marginTop="6dp" />
+
+                    <Button
+                        android:id="@+id/btnLaunchCrusaderHd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PLAY HD"
+                        android:backgroundTint="#8B0000"
+                        android:textColor="#DAA520"
+                        android:layout_marginTop="16dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: Stronghold Crusader Extreme HD -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardCrusaderExtreme"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_weight="1"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="#2A1E15"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="#DAA520"
+                app:strokeWidth="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stronghold Crusader Extreme HD"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:gravity="center" />
+
+                    <TextView
+                        android:id="@+id/tvCrusaderExtremeStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ready to Launch"
+                        android:textColor="#32CD32"
+                        android:textSize="12sp"
+                        android:layout_marginTop="6dp" />
+
+                    <Button
+                        android:id="@+id/btnLaunchCrusaderExtreme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PLAY EXTREME"
+                        android:backgroundTint="#8B0000"
+                        android:textColor="#DAA520"
+                        android:layout_marginTop="16dp" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Importer / Storage Status -->
+        <TextView
+            android:id="@+id/tvStorageInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Storage Directory: /data/user/0/com.mineswordteam.strongholdcrusader/files"
+            android:textColor="#808080"
+            android:textSize="12sp"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btnImportGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Import / Extract Game Package"
+            android:backgroundTint="#3A281C"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,81 @@
+name: Build and Release Android APK
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build & Release Android APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Run Unit Tests
+        run: ./gradlew test
+
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
+
+      - name: Verify APK Generated
+        run: |
+          if [ ! -f "android/app/build/outputs/apk/release/app-release-unsigned.apk" ]; then
+            echo "Error: Release APK not found!"
+            exit 1
+          fi
+          echo "Release APK verified successfully!"
+          ls -lh android/app/build/outputs/apk/release/*.apk
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Stronghold-Crusader-HD-Android-v1.0.0
+          path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+
+      - name: Create or Release Github Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        with:
+          tag_name: v1.0.0
+          name: Stronghold Crusader Android v1.0.0
+          body: |
+            ## Stronghold Crusader HD & Extreme HD - Android Edition v1.0.0
+
+            **MineswordTeam Porting & Compatibility Division**
+
+            ### Highlights
+            - Dual game launcher supporting **Stronghold Crusader HD** (`Stronghold Crusader.exe`) and **Stronghold Crusader Extreme HD** (`Stronghold_Crusader_Extreme.exe`).
+            - Modernized touch controls: Drag-to-pan camera scrolling with touch-slop smoothing.
+            - Multitouch pinch-to-zoom mapped to Win32 mouse wheel.
+            - Context-sensitive HUD overlay (Select, Action, Drag).
+            - Intelligent hardware Back button handling with in-game pause overlay dialog.
+            - Native OpenGLES 2.0 / JNI compatibility runtime.
+          files: android/app/build/outputs/apk/release/app-release-unsigned.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

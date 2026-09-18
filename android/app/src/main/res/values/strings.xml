@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Stronghold Crusader HD</string>
+    <string name="branding_team">MINESWORDTEAM</string>
+    <string name="launcher_subtitle">Medieval Compatibility Runtime &amp; Port Layer</string>
+    <string name="play_crusader_hd">Play Stronghold Crusader HD</string>
+    <string name="play_crusader_extreme">Play Stronghold Crusader Extreme HD</string>
+    <string name="game_not_found">Executables not detected in storage</string>
+    <string name="import_game_files">Import Game Data Package</string>
+</resources>
